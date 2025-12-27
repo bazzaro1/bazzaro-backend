@@ -2,24 +2,23 @@
 
 return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Cross-Origin Resource Sharing (CORS) Configuration
-    |--------------------------------------------------------------------------
-    |
-    | Here you may configure your settings for cross-origin resource sharing
-    | or "CORS". This determines what cross-origin operations may execute
-    | in web browsers. You are free to adjust these settings as needed.
-    |
-    | To learn more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
-    |
-    */
-
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => [
+        'api/*',
+        'sanctum/csrf-cookie',
+    ],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    /*
+    |--------------------------------------------------------------------------
+    | Allowed Origins
+    |--------------------------------------------------------------------------
+    | Frontend domainlar
+    */
+    'allowed_origins' => [
+        'https://bazzaro.uz',
+        'https://www.bazzaro.uz',
+    ],
 
     'allowed_origins_patterns' => [],
 
@@ -29,6 +28,11 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
-
+    /*
+    |--------------------------------------------------------------------------
+    | Credentials
+    |--------------------------------------------------------------------------
+    | Agar Sanctum / cookie auth ishlatilsa TRUE bo‘lishi shart
+    */
+    'supports_credentials' => true,
 ];
